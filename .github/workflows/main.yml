@@ -61,3 +61,28 @@ jobs:
         run: npm ci
       - name: Test
         run: npm run build
+
+  docker-build:
+
+    runs-on: ubuntu-latest
+
+     #strategy:
+       #matrix:
+        #node-version: [16.17.0]
+       
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-push-action@v2
+
+      -
+      -
+        name: Build
+        uses: docker/build-push-push-action@v2
+        with:
+          -tags: bad54/docker-vuejs:latest
